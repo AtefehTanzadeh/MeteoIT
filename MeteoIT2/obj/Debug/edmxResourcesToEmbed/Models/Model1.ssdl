@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DataCollectionTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NetworkTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Stations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="StationName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LatinStationName" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="WMOCode" Type="nchar" MaxLength="10" />
+    <Property Name="ICAOCode" Type="nchar" MaxLength="4" />
+    <Property Name="IdStationTypes" Type="int" />
+    <Property Name="IdDataCollectionTypes" Type="int" />
+    <Property Name="IdNetworkTypes" Type="int" />
+    <Property Name="IdStationUsers" Type="int" />
+  </EntityType>
+  <EntityType Name="StationTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StationUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Phone" Type="nchar" MaxLength="11" />
+    <Property Name="IdStations" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_Stations_DataCollectionTypes">
+    <End Role="DataCollectionTypes" Type="Self.DataCollectionTypes" Multiplicity="0..1" />
+    <End Role="Stations" Type="Self.Stations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DataCollectionTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Stations">
+        <PropertyRef Name="IdDataCollectionTypes" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Stations_NetworkTypes">
+    <End Role="NetworkTypes" Type="Self.NetworkTypes" Multiplicity="0..1" />
+    <End Role="Stations" Type="Self.Stations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NetworkTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Stations">
+        <PropertyRef Name="IdNetworkTypes" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Stations_StationTypes">
+    <End Role="StationTypes" Type="Self.StationTypes" Multiplicity="0..1" />
+    <End Role="Stations" Type="Self.Stations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StationTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Stations">
+        <PropertyRef Name="IdStationTypes" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Stations_StationUsers">
+    <End Role="StationUsers" Type="Self.StationUsers" Multiplicity="0..1" />
+    <End Role="Stations" Type="Self.Stations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StationUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Stations">
+        <PropertyRef Name="IdStationUsers" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StationUsers_Stations">
+    <End Role="Stations" Type="Self.Stations" Multiplicity="0..1" />
+    <End Role="StationUsers" Type="Self.StationUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StationUsers">
+        <PropertyRef Name="IdStations" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="DataCollectionTypes" EntityType="Self.DataCollectionTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NetworkTypes" EntityType="Self.NetworkTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Stations" EntityType="Self.Stations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StationTypes" EntityType="Self.StationTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StationUsers" EntityType="Self.StationUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Stations_DataCollectionTypes" Association="Self.FK_Stations_DataCollectionTypes">
+      <End Role="DataCollectionTypes" EntitySet="DataCollectionTypes" />
+      <End Role="Stations" EntitySet="Stations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Stations_NetworkTypes" Association="Self.FK_Stations_NetworkTypes">
+      <End Role="NetworkTypes" EntitySet="NetworkTypes" />
+      <End Role="Stations" EntitySet="Stations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Stations_StationTypes" Association="Self.FK_Stations_StationTypes">
+      <End Role="StationTypes" EntitySet="StationTypes" />
+      <End Role="Stations" EntitySet="Stations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Stations_StationUsers" Association="Self.FK_Stations_StationUsers">
+      <End Role="StationUsers" EntitySet="StationUsers" />
+      <End Role="Stations" EntitySet="Stations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StationUsers_Stations" Association="Self.FK_StationUsers_Stations">
+      <End Role="Stations" EntitySet="Stations" />
+      <End Role="StationUsers" EntitySet="StationUsers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

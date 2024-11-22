@@ -1,0 +1,467 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{421B3999-BFF0-4805-A2E2-0BBF7BA2CEAF}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MeteoIT2</RootNamespace>
+    <AssemblyName>MeteoIT2</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Models\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-3.7.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.7.1.js" />
+    <Content Include="Scripts\jquery-3.7.1.min.js" />
+    <Content Include="Scripts\jquery-3.7.1.slim.js" />
+    <Content Include="Scripts\jquery-3.7.1.slim.min.js" />
+    <Content Include="Templates\vali\docs\blank-page.html" />
+    <Content Include="Templates\vali\docs\bootstrap-components.html" />
+    <Content Include="Templates\vali\docs\charts.html" />
+    <Content Include="Templates\vali\docs\css\main.css" />
+    <Content Include="Templates\vali\docs\form-components.html" />
+    <Content Include="Templates\vali\docs\form-custom.html" />
+    <Content Include="Templates\vali\docs\form-notifications.html" />
+    <Content Include="Templates\vali\docs\form-samples.html" />
+    <Content Include="Templates\vali\docs\index.html" />
+    <Content Include="Templates\vali\docs\js\bootstrap.min.js" />
+    <Content Include="Templates\vali\docs\js\jquery-3.2.1.min.js" />
+    <Content Include="Templates\vali\docs\js\main.js" />
+    <Content Include="Templates\vali\docs\js\plugins\bootstrap-datepicker.min.js" />
+    <Content Include="Templates\vali\docs\js\plugins\bootstrap-notify.min.js" />
+    <Content Include="Templates\vali\docs\js\plugins\chart.js" />
+    <Content Include="Templates\vali\docs\js\plugins\dataTables.bootstrap.min.js" />
+    <Content Include="Templates\vali\docs\js\plugins\fullcalendar.min.js" />
+    <Content Include="Templates\vali\docs\js\plugins\jquery-ui.custom.min.js" />
+    <Content Include="Templates\vali\docs\js\plugins\jquery.dataTables.min.js" />
+    <Content Include="Templates\vali\docs\js\plugins\jquery.vmap.min.js" />
+    <Content Include="Templates\vali\docs\js\plugins\jquery.vmap.sampledata.js" />
+    <Content Include="Templates\vali\docs\js\plugins\jquery.vmap.world.js" />
+    <Content Include="Templates\vali\docs\js\plugins\moment.min.js" />
+    <Content Include="Templates\vali\docs\js\plugins\pace.min.js" />
+    <Content Include="Templates\vali\docs\js\plugins\select2.min.js" />
+    <Content Include="Templates\vali\docs\js\plugins\sweetalert.min.js" />
+    <Content Include="Templates\vali\docs\js\popper.min.js" />
+    <Content Include="Templates\vali\docs\page-calendar.html" />
+    <Content Include="Templates\vali\docs\page-error.html" />
+    <Content Include="Templates\vali\docs\page-invoice.html" />
+    <Content Include="Templates\vali\docs\page-lockscreen.html" />
+    <Content Include="Templates\vali\docs\page-login.html" />
+    <Content Include="Templates\vali\docs\page-mailbox.html" />
+    <Content Include="Templates\vali\docs\page-user.html" />
+    <Content Include="Templates\vali\docs\table-basic.html" />
+    <Content Include="Templates\vali\docs\table-data-table.html" />
+    <Content Include="Templates\vali\docs\ui-cards.html" />
+    <Content Include="Templates\vali\docs\widgets.html" />
+    <Content Include="Templates\vali\Gruntfile.js" />
+    <Content Include="Templates\vali\node-dev-server.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Extension\Extensioncs.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataCollectionTypes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NetworkTypes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Stations.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\StationsController.cs" />
+    <Compile Include="Models\StationTypes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StationUsers.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Views\Stations\Index.cshtml" />
+    <Content Include="Templates\vali\.github\ISSUE_TEMPLATE\bug_report.md" />
+    <Content Include="Templates\vali\.github\ISSUE_TEMPLATE\feature_request.md" />
+    <Content Include="Templates\vali\.github\PULL_REQUEST_TEMPLATE.md" />
+    <Content Include="Templates\vali\.gitignore" />
+    <Content Include="Templates\vali\CODE_OF_CONDUCT.md" />
+    <Content Include="Templates\vali\CONTRIBUTING.md" />
+    <Content Include="Templates\vali\LICENSE" />
+    <Content Include="Templates\vali\package-lock.json" />
+    <Content Include="Templates\vali\package.json" />
+    <Content Include="Templates\vali\README.md" />
+    <Content Include="Templates\vali\src\pug\blank-page.pug" />
+    <Content Include="Templates\vali\src\pug\bootstrap-components.pug" />
+    <Content Include="Templates\vali\src\pug\charts.pug" />
+    <Content Include="Templates\vali\src\pug\form-components.pug" />
+    <Content Include="Templates\vali\src\pug\form-custom.pug" />
+    <Content Include="Templates\vali\src\pug\form-notifications.pug" />
+    <Content Include="Templates\vali\src\pug\form-samples.pug" />
+    <Content Include="Templates\vali\src\pug\includes\_head.pug" />
+    <Content Include="Templates\vali\src\pug\includes\_header.pug" />
+    <Content Include="Templates\vali\src\pug\includes\_javascript.pug" />
+    <Content Include="Templates\vali\src\pug\includes\_sidebar.pug" />
+    <Content Include="Templates\vali\src\pug\index.pug" />
+    <Content Include="Templates\vali\src\pug\layouts\_layout.pug" />
+    <Content Include="Templates\vali\src\pug\page-calendar.pug" />
+    <Content Include="Templates\vali\src\pug\page-error.pug" />
+    <Content Include="Templates\vali\src\pug\page-invoice.pug" />
+    <Content Include="Templates\vali\src\pug\page-lockscreen.pug" />
+    <Content Include="Templates\vali\src\pug\page-login.pug" />
+    <Content Include="Templates\vali\src\pug\page-mailbox.pug" />
+    <Content Include="Templates\vali\src\pug\page-user.pug" />
+    <Content Include="Templates\vali\src\pug\table-basic.pug" />
+    <Content Include="Templates\vali\src\pug\table-data-table.pug" />
+    <Content Include="Templates\vali\src\pug\ui-cards.pug" />
+    <Content Include="Templates\vali\src\pug\widgets.pug" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\mixins\_alert.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\mixins\_background-variant.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\mixins\_badge.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\mixins\_border-radius.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\mixins\_box-shadow.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\mixins\_breakpoints.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\mixins\_buttons.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\mixins\_caret.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\mixins\_clearfix.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\mixins\_float.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\mixins\_forms.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\mixins\_gradients.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\mixins\_grid-framework.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\mixins\_grid.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\mixins\_hover.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\mixins\_image.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\mixins\_list-group.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\mixins\_lists.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\mixins\_nav-divider.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\mixins\_pagination.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\mixins\_reset-text.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\mixins\_resize.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\mixins\_screen-reader.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\mixins\_size.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\mixins\_table-row.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\mixins\_text-emphasis.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\mixins\_text-hide.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\mixins\_text-truncate.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\mixins\_transition.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\mixins\_visibility.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\utilities\_align.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\utilities\_background.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\utilities\_borders.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\utilities\_clearfix.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\utilities\_display.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\utilities\_embed.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\utilities\_flex.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\utilities\_float.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\utilities\_position.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\utilities\_screenreaders.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\utilities\_shadows.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\utilities\_sizing.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\utilities\_spacing.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\utilities\_text.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\utilities\_visibility.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\_alert.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\_badge.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\_bootstrap-grid.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\_bootstrap-reboot.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\_bootstrap.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\_breadcrumb.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\_button-group.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\_buttons.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\_card.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\_carousel.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\_close.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\_code.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\_custom-forms.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\_dropdown.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\_forms.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\_functions.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\_grid.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\_images.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\_input-group.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\_jumbotron.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\_list-group.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\_media.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\_mixins.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\_modal.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\_nav.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\_navbar.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\_pagination.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\_popover.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\_print.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\_progress.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\_reboot.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\_root.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\_tables.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\_tooltip.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\_transitions.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\_type.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\_utilities.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\bootstrap-source\_variables.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\_bootstrap-datepicker.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\_customize-bootstrap.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\_dataTables.bootstrap.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\_fonts.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\_fullcalendar.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\_jqvmap.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\_notify.sass" />
+    <Content Include="Templates\vali\src\sass\1-tools\_pace.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\_select2.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\_sweetalert.scss" />
+    <Content Include="Templates\vali\src\sass\1-tools\_vars.scss" />
+    <Content Include="Templates\vali\src\sass\2-basics\_app.scss" />
+    <Content Include="Templates\vali\src\sass\2-basics\_helpers.scss" />
+    <Content Include="Templates\vali\src\sass\3-component\_app-title.scss" />
+    <Content Include="Templates\vali\src\sass\3-component\_button-spinner.scss" />
+    <Content Include="Templates\vali\src\sass\3-component\_button.scss" />
+    <Content Include="Templates\vali\src\sass\3-component\_chat.scss" />
+    <Content Include="Templates\vali\src\sass\3-component\_custom-radio-n-checkbox.scss" />
+    <Content Include="Templates\vali\src\sass\3-component\_dropdown.scss" />
+    <Content Include="Templates\vali\src\sass\3-component\_header.scss" />
+    <Content Include="Templates\vali\src\sass\3-component\_material-half-bg.scss" />
+    <Content Include="Templates\vali\src\sass\3-component\_material-loader.scss" />
+    <Content Include="Templates\vali\src\sass\3-component\_rtl.scss" />
+    <Content Include="Templates\vali\src\sass\3-component\_sidebar-mini.scss" />
+    <Content Include="Templates\vali\src\sass\3-component\_sidebar.scss" />
+    <Content Include="Templates\vali\src\sass\3-component\_tile.scss" />
+    <Content Include="Templates\vali\src\sass\3-component\_toggle-button.scss" />
+    <Content Include="Templates\vali\src\sass\3-component\_widgets.scss" />
+    <Content Include="Templates\vali\src\sass\4-pages\_error-page.scss" />
+    <Content Include="Templates\vali\src\sass\4-pages\_lockscreen-material.scss" />
+    <Content Include="Templates\vali\src\sass\4-pages\_login-material.scss" />
+    <Content Include="Templates\vali\src\sass\4-pages\_mailbox.scss" />
+    <Content Include="Templates\vali\src\sass\4-pages\_user-profile.scss" />
+    <Content Include="Templates\vali\src\sass\main.scss" />
+    <Content Include="Scripts\jquery-3.7.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.7.1.min.map" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1066</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:1066/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

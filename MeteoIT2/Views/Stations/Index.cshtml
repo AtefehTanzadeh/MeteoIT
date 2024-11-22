@@ -1,0 +1,78 @@
+﻿@model IEnumerable<MeteoIT2.Models.Stations>
+
+@{
+    ViewBag.Title = "لیست ایستگاه ها";
+}
+
+<h2>لیست ایستگاه ها</h2>
+
+<p>
+    @Html.ActionLink("افزودن ایستگاه", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StationName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LatinStationName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WMOCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ICAOCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataCollectionTypes.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NetworkTypes.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StationTypes.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StationUsers.FirstName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StationName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LatinStationName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WMOCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ICAOCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataCollectionTypes.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NetworkTypes.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StationTypes.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StationUsers.FirstName)
+                & nbsp;
+                @Html.DisplayFor(modelItem => item.StationUsers.LastName)
+            </td>
+            <td>
+                @Html.ActionLink("ویرایش", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("جزئیات", "Details", new { id = item.Id }) |
+                @Html.ActionLink("حذف", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>

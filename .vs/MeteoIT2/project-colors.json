@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "421b3999-bff0-4805-a2e2-0bbf7ba2ceaf": {
+      "ProjectGuid": "421b3999-bff0-4805-a2e2-0bbf7ba2ceaf",
+      "DisplayName": "MeteoIT2",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 1
+}
